@@ -1,1 +1,1 @@
-###Official Portfolio Website for Tharagaraman Balaji
+## Official Portfolio Website for Tharagaraman Balaji
