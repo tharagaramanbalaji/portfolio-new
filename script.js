@@ -77,8 +77,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add keyboard shortcut to switch project tabs with 'P' key
     document.addEventListener('keydown', (e) => {
-        // Check if 'p' was pressed and we are on a projects page
+        // Check if 'p' was pressed
         if (e.key.toLowerCase() === 'p') {
+            // First, check if the filter tabs container exists on the current page
+            const filterTabsContainer = document.querySelector('.filter-tabs');
+            if (!filterTabsContainer) {
+                return; // If not, do nothing.
+            }
+
             // Find all tabs and the currently active one
             const tabs = Array.from(filterTabsContainer.querySelectorAll('.tab-btn'));
             const currentIndex = tabs.findIndex(tab => tab.classList.contains('active'));
@@ -88,12 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const nextIndex = (currentIndex + 1) % tabs.length;
                 
                 // Trigger a click on the next tab to switch categories
-
-
-
-
-
-});    });        }            }                tabs[nextIndex].click();                tabs[nextIndex].click();
+                tabs[nextIndex].click();
             }
         }
     });

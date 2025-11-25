@@ -478,6 +478,20 @@ body {
         display: none;
     }
 
+    /* Responsive Footer */
+    .site-footer {
+        flex-direction: column; /* Stack elements vertically */
+        gap: 0.5rem; /* Add some space between stacked items */
+        padding: 0.75rem 1rem; /* Reduce horizontal padding */
+        font-size: 0.8rem; /* Slightly smaller font */
+        text-align: center;
+    }
+
+    /* Adjust body padding to account for taller footer */
+    body {
+        padding-bottom: 100px; 
+    }
+
     .navbar {
         justify-content: center;
         padding: 1.5rem;
@@ -503,6 +517,22 @@ body {
     .project-links {
         opacity: 1;
         transform: none;
+    }
+
+    /* Responsive Experience Section */
+    .experience-card {
+        width: 100%; /* Make cards full-width on mobile */
+        flex-direction: column; /* Stack date and details vertically */
+        align-items: flex-start; /* Align content to the left */
+        gap: 1rem;
+    }
+
+    .experience-card:nth-child(even) {
+        align-self: initial; /* Remove the stagger effect on mobile */
+    }
+
+    .experience-details {
+        text-align: left; /* Align text to the left for readability */
     }
     
     .hero-section {
