@@ -13,11 +13,25 @@
     box-sizing: border-box;
 }
 
-body {
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
     background-color: var(--bg-color);
     color: var(--text-color);
     font-family: var(--font-main);
     cursor: none; /* Hide the default cursor */
+}
+
+#root {
+    height: 100%;
+}
+
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
 
 /* Custom Cursor Styles */
@@ -210,7 +224,7 @@ a:hover ~ .cursor-outline,
 .project-list {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .project-card {
