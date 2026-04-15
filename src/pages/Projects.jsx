@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Navbar from '../components/Navbar';
 import ProjectCard from '../components/ProjectCard';
 import useKeyboardShortcuts from '../hooks/useKeyboardShortcuts';
 
@@ -156,6 +157,8 @@ const Projects = () => {
       >
         Projects.
       </motion.h1>
+
+      <Navbar />
 
       <div className="filter-tabs">
         {categories.map((category, index) => (

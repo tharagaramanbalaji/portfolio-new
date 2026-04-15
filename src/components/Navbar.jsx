@@ -6,8 +6,6 @@ const Navbar = () => {
   const location = useLocation();
 
   const navLinks = [
-    { name: 'Projects', path: '/projects' },
-    { name: 'Experience', path: '/experience' },
     { name: 'Blogs', path: 'https://devodyssesy.hashnode.dev', external: true },
     { name: 'Contact', path: 'mailto:tharagaraman2004@gmail.com', external: true },
   ];

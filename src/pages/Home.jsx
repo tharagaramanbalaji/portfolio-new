@@ -1,10 +1,45 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
+import Navbar from '../components/Navbar';
 import useKeyboardShortcuts from '../hooks/useKeyboardShortcuts';
 
 const Home = () => {
   useKeyboardShortcuts();
+
+  const experiences = [
+    {
+      date: 'Jun 2025 - Jul 2025',
+      company: 'TechOrbit IT & DT, UAE',
+      role: 'AI Software Developer',
+      highlighted: true,
+    },
+    {
+      date: 'Oct 2024',
+      company: 'Hacktoberfest',
+      role: 'Open Source Contributor',
+    },
+    {
+      date: 'Jun 2024 - Jul 2024',
+      company: 'Resh and Thosh Technologies',
+      role: 'Python Developer Intern',
+    },
+    {
+      date: 'Present',
+      company: 'Open Source Club - BSACU',
+      role: 'Technical Director',
+    },
+  ];
+
+  const skills = [
+    'Python & Libraries',
+    'LLMs',
+    'Basics of AI/ML',
+    'Node.js',
+    'Express.js',
+    'Javascript',
+    'React',
+    'UI/UX'
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -38,6 +73,8 @@ const Home = () => {
         <motion.h1 className="name" variants={itemVariants}>
           Tharagaraman Balaji.
         </motion.h1>
+
+        <Navbar />
         
         <motion.p className="bio" variants={itemVariants}>
           Developer integrating AI , ML and full stack to make real impact.<br />
@@ -47,7 +84,21 @@ const Home = () => {
 
         <motion.div className="skills-section" variants={itemVariants}>
           <h2>Top Skills</h2>
-          <p className="skills-list">Python & Libraries • LLMs • AI/ML • End to End Thinking</p>
+          <div className="skills-list">
+            {skills.map((skill, index) => (
+              <motion.span 
+                key={index} 
+                className="skill-tag"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.05 }}
+              >
+                {skill}
+              </motion.span>
+            ))}
+          </div>
         </motion.div>
 
         <motion.div className="social-buttons" variants={itemVariants}>
@@ -60,6 +111,21 @@ const Home = () => {
           <a href="https://twitter.com/tharagaraman" target="_blank" rel="noopener noreferrer" className="social-btn" aria-label="X (Twitter)">
             <i className="fa-brands fa-x-twitter"></i>
           </a>
+        </motion.div>
+
+        <motion.div className="experience-section" variants={itemVariants}>
+          <h2 className="section-title">Experience</h2>
+          <div className="experience-list">
+            {experiences.map((exp, index) => (
+              <div key={index} className={`experience-card ${exp.highlighted ? 'highlighted' : ''}`}>
+                <span className="experience-date">{exp.date}</span>
+                <div className="experience-details">
+                  <h3>{exp.company}</h3>
+                  <p>{exp.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </motion.div>
       </motion.div>
     </main>

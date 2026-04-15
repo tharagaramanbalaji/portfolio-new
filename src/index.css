@@ -82,9 +82,10 @@ a:hover ~ .cursor-outline,
 
 /* Navigation */
 .navbar {
-    padding: 2rem 4rem;
+    padding: 1.5rem 0; /* Reduced vertical padding, no horizontal padding needed inline */
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start; /* Align with the name and bio */
+    width: 100%;
 }
 
 .nav-links {
@@ -130,17 +131,19 @@ a:hover ~ .cursor-outline,
 .hero-section {
     flex: 1;
     display: flex;
-    align-items: center;
-    justify-content: center; /* Center content horizontally */
-    padding-left: 0; /* Remove previous left padding */
+    align-items: flex-start; /* Move content above the middle */
+    justify-content: center;
+    padding: 8vh 2rem 5rem 2rem; /* Added bottom padding for more content */
+    min-height: 100vh; /* Changed to allow scrolling */
 }
 
 .content-wrapper {
-    max-width: 600px;
-    text-align: center; /* Center all text within the wrapper */
+    max-width: 800px;
+    width: 100%;
+    text-align: left;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center flex items like the buttons */
+    align-items: flex-start;
 }
 
 .name {
@@ -316,21 +319,19 @@ a:hover ~ .cursor-outline,
 }
 
 .experience-card {
-    background-color: transparent; /* Use transparent background */
+    background-color: transparent; 
     border: 1px solid #333;
     border-radius: 12px;
     padding: 1.5rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: all 0.3s ease; /* Smooth transition for hover */
-    width: 65%; /* Set card width to allow for staggering */
+    transition: all 0.3s ease; 
+    width: 100%; /* Changed from 65% to full width of container */
+    max-width: 600px; /* Limit width for readability */
 }
 
-/* Stagger effect for even-numbered cards */
-.experience-card:nth-child(even) {
-    align-self: flex-end;
-}
+/* Removed stagger effect for even-numbered cards */
 
 .experience-card:hover {
     transform: translateY(-5px);
@@ -364,6 +365,18 @@ a:hover ~ .cursor-outline,
 }
 
 
+.experience-section {
+    margin-top: 4rem;
+    width: 100%;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+}
+
 /* Skills Section */
 .skills-section {
     margin-bottom: 2rem;
@@ -376,9 +389,28 @@ a:hover ~ .cursor-outline,
 }
 
 .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.skill-tag {
+    background-color: #111111;
     color: var(--text-secondary);
-    font-size: 1rem;
-    font-weight: 300;
+    padding: 0.5rem 1rem;
+    border: 1px solid #222;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: default;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-tag:hover {
+    background-color: #1a1a1a;
+    color: var(--text-color);
+    border-color: #444;
 }
 
 /* Social Buttons */
@@ -408,8 +440,9 @@ a:hover ~ .cursor-outline,
 }
 
 .social-btn i {
-    color: #000000;
-    opacity: 0.8;
+    color: var(--text-color);
+    opacity: 0.9;
+    font-size: 1.1rem;
 }
 
 .social-btn:hover {
@@ -550,9 +583,15 @@ body {
     }
     
     .hero-section {
-        padding: 2rem;
+        padding: 4vh 1.5rem;
         align-items: flex-start;
-        margin-top: 2rem;
+        justify-content: center;
+        margin-top: 0;
+    }
+
+    .navbar {
+        justify-content: flex-start;
+        padding: 1rem 0;
     }
 
     .name {
