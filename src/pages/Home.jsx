@@ -1,7 +1,13 @@
 import { motion } from 'framer-motion';
-import { ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import useKeyboardShortcuts from '../hooks/useKeyboardShortcuts';
+
+// To change individual project details (title, description, or image):
+// Simply edit the 'featuredProjects' array below.
+import sqlChatImg from '../assets/sql_chat.png';
+import gitscanImg from '../assets/gitscan_hero.png';
+import trackmintImg from '../assets/trackmint.png';
 
 const Home = () => {
   useKeyboardShortcuts();
@@ -28,6 +34,27 @@ const Home = () => {
       company: 'Open Source Club - BSACU',
       role: 'Technical Director',
     },
+  ];
+
+  const featuredProjects = [
+    {
+      title: 'SQL Chat',
+      description: 'An AI-driven interface that enables users to query databases using natural language and real-time SQL generation.',
+      image: sqlChatImg,
+      link: 'https://chatwithdb.vercel.app'
+    },
+    {
+      title: 'GitScan',
+      description: 'One scan, total developer breakdown. Visualize skills, patterns, and performance instantly.',
+      image: gitscanImg,
+      link: 'https://scanyourgitprofile.vercel.app'
+    },
+    {
+      title: 'TrackMint',
+      description: 'A comprehensive finance dashboard for real-time visual monitoring of assets, activity, and spending breakdown.',
+      image: trackmintImg,
+      link: 'https://trackmintdashboard.vercel.app'
+    }
   ];
 
   const skills = [
@@ -58,13 +85,9 @@ const Home = () => {
 
   return (
     <main className="hero-section">
-      <div className="nav-shortcuts fade-in delay-4">
-        <span>[1] Home</span>
-        <span>[2] Projects</span>
-        <span>[3] Experience</span>
-      </div>
 
-      <motion.div 
+
+      <motion.div
         className="content-wrapper"
         variants={containerVariants}
         initial="hidden"
@@ -75,10 +98,10 @@ const Home = () => {
         </motion.h1>
 
         <Navbar />
-        
+
         <motion.p className="bio" variants={itemVariants}>
-          Developer integrating AI , ML and full stack to make real impact.<br />
-          Working my way towards the <span className="highlight">Top 1%</span>. Currently open to internships<br />
+          Developer integrating AI, ML, and full stack to make real impact.
+          Working my way towards the <span className="highlight">Top 1%</span>. Currently open to internships
           and actively seeking opportunities.
         </motion.p>
 
@@ -86,8 +109,8 @@ const Home = () => {
           <h2>Top Skills</h2>
           <div className="skills-list">
             {skills.map((skill, index) => (
-              <motion.span 
-                key={index} 
+              <motion.span
+                key={index}
                 className="skill-tag"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
@@ -111,6 +134,25 @@ const Home = () => {
           <a href="https://twitter.com/tharagaraman" target="_blank" rel="noopener noreferrer" className="social-btn" aria-label="X (Twitter)">
             <i className="fa-brands fa-x-twitter"></i>
           </a>
+        </motion.div>
+
+        <motion.div className="projects-grid-section" variants={itemVariants}>
+          <div className="section-header">
+            <h2 className="section-title">Projects</h2>
+          </div>
+          <div className="projects-grid">
+            {featuredProjects.map((project, index) => (
+              <a key={index} href={project.link} target="_blank" rel="noopener noreferrer" className="featured-project-card">
+                <div className="project-thumb-wrapper">
+                  <img src={project.image} alt={project.title} className="project-thumbnail" />
+                </div>
+                <div className="project-card-footer">
+                  <h3>{project.title} ↗</h3>
+                  <p>{project.description}</p>
+                </div>
+              </a>
+            ))}
+          </div>
         </motion.div>
 
         <motion.div className="experience-section" variants={itemVariants}>

@@ -29,11 +29,7 @@ const Footer = () => {
       animate={{ opacity: 1 }}
       transition={{ delay: 0.5 }}
     >
-      {location.pathname !== '/projects' ? (
-        <Link to="/projects" className="footer-link">Projects →</Link>
-      ) : (
-        <Link to="/" className="footer-link">← Home</Link>
-      )}
+
       <span className="footer-credit">Made by Tharagaraman Balaji | © 2025</span>
       <span className="footer-time">{time}</span>
     </motion.footer>

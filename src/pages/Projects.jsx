@@ -146,9 +146,7 @@ const Projects = () => {
 
   return (
     <main className="projects-page-section">
-      <div className="page-shortcuts fade-in delay-4">
-        <span>[P] Switch Category</span>
-      </div>
+
 
       <motion.h1 
         className="page-title"
